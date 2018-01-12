@@ -65,7 +65,7 @@ function CriminalsManager:add_character(name, unit, peer_id, ai, ai_loadout)
 				end
 			end
 		--snow coats override raincoats
-		elseif snow and ROAH.Options:GetValue("enable_coats") then
+		elseif ROAH.Options:GetValue("enable_coats") then
 			local sequence = "spawn_prop_winter_suit"
 			if sequence and alive(unit) then
 				local unit_damage = not unit:damage() and unit:camera() and unit:camera():camera_unit():damage()
@@ -73,7 +73,7 @@ function CriminalsManager:add_character(name, unit, peer_id, ai, ai_loadout)
 					unit_damage:run_sequence_simple(sequence)
 				end
 			end
-		elseif ROAH.Options:GetValue("enable_coats") then
+		elseif rain and ROAH.Options:GetValue("enable_coats") then
 			local sequence = "spawn_prop_raincoat"
 			if sequence and alive(unit) then
 				local unit_damage = not unit:damage() and unit:camera() and unit:camera():camera_unit():damage()
